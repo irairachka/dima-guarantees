@@ -1,0 +1,74 @@
+.wrapper,
+.acc-container {
+  //max-width: 70%;
+  //margin: 0 auto;
+
+  //&.user-container {
+  //  background: #309a83;
+  //}
+  //
+  //&.bank-container {
+  //  background: #cc6600;
+  //}
+  //
+  //&.benef-container {
+  //  background: #cc9900;
+  //}
+}
+
+.acc-container {
+  display: table;
+  width: 100%;
+
+  .wrapper {
+    display: table-cell;
+    width: 1%;
+    background: #ddd;
+    height: 100vh;
+    transition: 0.6s ease-in-out all;
+    overflow: hidden;
+    position: relative;
+    min-width: 65px;
+
+    .title {
+      font-size: 3em;
+      transform: rotate(-90deg);
+      position: absolute;
+      left: 0;
+      top: 0;
+      text-align: right;
+      transform-origin: 100% 100%;
+      white-space: nowrap;
+    }
+
+    .content {
+      margin: 0 auto;
+    }
+
+    &+.wrapper {
+      border-right: 1px solid #000;
+    }
+
+    &.selected {
+      width: 100%;
+      &.container {
+        background: #fff;
+        min-width: 650px;
+      }
+      //
+      //&.bank-container {
+      //  background: #cc6600;
+      //}
+      //
+      //&.benef-container {
+      //  background: #cc9900;
+      //}
+      .title {
+        visibility: hidden;
+      }
+      .content {
+        visibility: visible;
+      }
+    }
+  }
+}

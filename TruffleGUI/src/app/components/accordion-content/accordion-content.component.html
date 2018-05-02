@@ -1,0 +1,7 @@
+<div class="progress-bar-container">
+  <!--<img src="../../../assets/images/progress1.jpeg">-->
+  <img [src]="statusGraph">
+</div>
+
+<app-history [userType]="userType"></app-history>
+<app-actions [userType]="userType" [data]="data" (updateRequest)="updateRequestsender($event)"></app-actions>

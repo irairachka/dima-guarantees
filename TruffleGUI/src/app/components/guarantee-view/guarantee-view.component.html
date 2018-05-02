@@ -1,0 +1,82 @@
+<div class="ui-layout-column" [ngClass]="user !== undefined ? user : ''">
+  <header class="view-header text-center ui-space-tb-large">
+    <label>מוטב</label>
+    <div class="header-text ui-layout-column ui-space-t-medium" ui-layout-align="space-around center">
+      <label>ניהול ערבויות</label>
+      <!--<div *ngIf="user==='beneficiary'">-->
+        <!--<button>מיון לפי תאריך</button>-->
+        <!--<button>מיון לפי משהו אחר</button>-->
+      <!--</div>-->
+    </div>
+  </header>
+  <main>
+
+    <div class="guarantees-section" *ngIf="user === 'beneficiary'">
+      <div *ngIf="allGuaranties" class="action-required ui-space-b-large">
+        <div class="section-header ui-space-tb-small text-bold">
+          <label>
+            דרושה פעולה
+          </label>
+        </div>
+        <!--<div *ngIf="allGuaranties" class="curr-guarantees">-->
+          <!--<p-accordion  styleClass="green">-->
+            <!--<p-accordionTab *ngFor="let req of allGuaranties">-->
+              <!--<p-header>-->
+                <!--<request-item [request]="req" (emitRequest)="openModal($event)">-->
+                <!--</request-item>-->
+              <!--</p-header>-->
+              <!--<accordion-content [userType]="user" [data]="req"></accordion-content>-->
+            <!--</p-accordionTab>-->
+          <!--</p-accordion>-->
+        <!--</div>-->
+      </div>
+
+      <div *ngIf="allGuaranties" class="active ui-space-b-large">
+        <div class="section-header ui-space-tb-small text-bold">
+          <label>
+            ערבויות פעילות
+          </label>
+        </div>
+        <div *ngIf="allGuaranties" class="curr-guarantees">
+          <p-accordion  styleClass="green" (onOpen)="setIndex($event)">
+            <p-accordionTab *ngFor="let guar of allGuaranties | filterByKeyValue:'guaranteeState':[1]:true">
+              <!--//theguaranteeState.Valid">-->
+              <p-header (click)="getGuaranteeHistory(guar)">
+                <guarantee-item [guarantee]="guar" (emitGuarantee)="openModal($event)">
+                </guarantee-item>
+              </p-header>
+              <app-history [userType]="beneficiary" [Ghistory]="guaranteeHistory"></app-history>
+              <app-actions [userType]="user" [data]="guar" (updateRequest)="updateGuaranteesender($event)"></app-actions>
+
+              <!--<accordion-content [userType]="'beneficiary'" [todel_state]=2 [data]="guar" (updateRequest)="updateGuaranteesender($event)"></accordion-content>-->
+            </p-accordionTab>
+
+          </p-accordion>
+        </div>
+      </div>
+
+      <div *ngIf="allGuaranties" class="history ui-space-b-large">
+        <div class="section-header ui-space-tb-small text-bold">
+          <label>
+            היסטוריה
+          </label>
+        </div>
+        <div *ngIf="allGuaranties" class="curr-guarantees">
+          <p-accordion  styleClass="green">
+            <p-accordionTab *ngFor="let guar of allGuaranties | filterByKeyValue:'guaranteeState':[2,3]">
+              <!--//theguaranteeState.Valid">-->
+              <p-header>
+                <guarantee-item [guarantee]="guar" (emitGuarantee)="openModal($event)">
+                </guarantee-item>
+              </p-header>
+              <!--<app-history [userType]="beneficiary" [Ghistory]="guaranteeHistory"></app-history>-->
+            </p-accordionTab>
+          </p-accordion>
+        </div>
+      </div>
+    </div>
+
+
+
+  </main>
+</div>

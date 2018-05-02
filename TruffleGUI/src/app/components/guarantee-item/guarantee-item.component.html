@@ -1,0 +1,20 @@
+<!--<div class="ui-layout request-item" *ngIf="request"-->
+     <!--ui-layout-align="space-between center">-->
+  <!--<label class="title text-bold">{{request.GRequestID | fourDigits}}</label>-->
+  <!--<label>{{request.beneficiaryName}}</label>-->
+  <!--<label>{{request.purpose}}</label>-->
+  <!--<label>{{request.amount}} ש"ח</label>-->
+  <!--<label>{{request.StartDate}}</label>-->
+  <!--<label>{{request.EndDate}}</label>-->
+<!--</div>-->
+
+<table class="guarantee-item" style="width:100%" *ngIf="guarantee">
+  <tr>
+    <td><status-icon [state]="guarantee.guaranteeState || guarantee.guaranteeState" [isRequest]=false [useState]=false ></status-icon></td>
+    <td class="text-bold">{{guarantee.GuaranteeID | fourDigits}}</td>
+    <td>{{guarantee.purpose}}</td>
+    <td>{{guarantee.amount}}ש״ח</td>
+    <td>{{guarantee.EndDate}}</td>
+  </tr>
+
+</table>

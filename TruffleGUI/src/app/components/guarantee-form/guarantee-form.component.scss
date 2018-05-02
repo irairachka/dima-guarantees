@@ -1,0 +1,146 @@
+.form {
+  //color: #fff;
+  header {
+    strong {
+      font-size: 2em;
+    }
+    font-size: 1.2em;
+    border-bottom: 1px solid #fff;
+  }
+
+  .form-label {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) rotate(90deg);
+    font-weight: bold;
+  }
+
+  input {
+    //max-width: 150px;
+    &+input {
+      //margin-top: 10px;
+    }
+  }
+  //label {
+  //  &+label {
+  //    margin-top: 10px;
+  //  }
+  // }
+
+  .double-input {
+    justify-content: space-between;
+    input {
+      height:40px;
+      flex-grow: 1;
+      & + input {
+        margin-top: 0;
+        margin-right: 10px;
+      }
+    }
+    label {
+      &+label {
+        margin-top: 0;
+        margin-right: 10px;
+      }
+    }
+    .input-container{
+      flex-grow:1;
+      & + .input-container{
+        margin-right: 10px;
+      }
+      label{
+        font-size: 23px;
+      }
+    }
+  }
+
+  .user-details,
+  .guarantee-details,
+  .status-wizard,
+  .actions,
+  .history {
+    position: relative;
+    //border-bottom: 1px solid #fff;
+  }
+
+  .status-wizard {
+    .form-label {
+      right: 0;
+    }
+  }
+
+  .user-details {
+    .form-label {
+      right: -14px;
+    }
+  }
+
+  .guarantee-details {
+    .form-label {
+      right: -24px;
+    }
+  }
+  .history {
+    .form-label {
+      right: -8px;
+    }
+  }
+
+
+  .user-details {
+    text-align: right;
+    padding: 0 25px 25px 25px;
+    .user-id-name-container{
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+      input{
+        margin-left: 10px
+      }
+    }
+    .user-details-container{
+      font-size: 24px;
+    }
+    .user-details-placeholder {
+      position: static;
+
+    }
+    .user-id-name + .user-id-name{
+      margin-right: 5px;
+    }
+  }
+  .input-container{
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    input{
+      height: 40px;
+    }
+    label{
+      font-size: 23px;
+    }
+  }
+  .guarantee-details-container{
+    display: flex;
+    justify-content: space-between;
+    .guarantee-details-left,
+    .guarantee-details-right{
+      flex-basis: 47%;
+      display: flex;
+      flex-direction: column;
+    }
+    .guarantee-details-right{
+      margin-left: 10px;
+    }
+  }
+
+  .guarantee-details-button{
+    margin-top: 10px;
+  }
+  input{
+    background: white;
+    border-radius: 7px;
+    border:1px solid #cccccc;
+  }
+}
