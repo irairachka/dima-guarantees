@@ -57,8 +57,8 @@ class RealService {
             console.warn("Using web3 detected from external source. If you find that your accounts don't appear or you have 0 MetaCoin, ensure you've configured that source properly. If using MetaMask, see the following link. Feel free to delete this warning. :) http://truffleframework.com/tutorials/truffle-and-metamask")
             this.web3 = new Web3(this.web3.currentProvider);
         } else {
-            console.warn("No web3 detected. Falling back to http://localhost:22000. You should remove this fallback when you deploy live, as it's inherently insecure. Consider switching to Metamask for development. More info here: http://truffleframework.com/tutorials/truffle-and-metamask");   
-	this.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:22000"));
+            console.warn("No web3 detected. Falling back to http://localhost:22000. You should remove this fallback when you deploy live, as it's inherently insecure. Consider switching to Metamask for development. More info here: http://truffleframework.com/tutorials/truffle-and-metamask");
+            this.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:22000"));
         }
     };
 
